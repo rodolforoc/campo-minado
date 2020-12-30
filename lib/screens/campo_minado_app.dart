@@ -1,10 +1,22 @@
 import 'package:campo_minado/models/campo.dart';
-import 'package:campo_minado/models/explosao_exception.dart';
-import 'package:campo_minado/widgets/campo_widget.dart';
+import 'package:campo_minado/models/tabuleiro.dart';
 import 'package:campo_minado/widgets/resultado_widget.dart';
+import 'package:campo_minado/widgets/tabuleiro_widget.dart';
 import 'package:flutter/material.dart';
 
-class CampoMinadoApp extends StatelessWidget {
+class CampoMinadoApp extends StatefulWidget {
+  @override
+  _CampoMinadoAppState createState() => _CampoMinadoAppState();
+}
+
+class _CampoMinadoAppState extends State<CampoMinadoApp> {
+  bool _venceu;
+  Tabuleiro _tabuleiro = Tabuleiro(
+    linhas: 12,
+    colunas: 12,
+    qtdBombas: 0,
+  );
+
   void _reiniciar() {
     print('');
   }
@@ -15,24 +27,17 @@ class CampoMinadoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Campo campo = Campo(linha: 0, coluna: 0);
-
-    try {
-      //campo.minar();
-      campo.abrir();
-    } on ExplosaoException {}
-
     return MaterialApp(
       home: Scaffold(
         appBar: ResultadoWidget(
-          venceu: false,
+          venceu: _venceu,
           onReiniciar: _reiniciar,
         ),
         body: Container(
-          child: CampoWidget(
-            campo: campo,
+          child: TabuleiroWidget(
+            tabuleiro: _tabuleiro,
             onAbrir: _abrir,
-            onAlternarMarcacao: _alternarMarcacao,
+            onAlterarMarcacao: _alternarMarcacao,
           ),
         ),
       ),
