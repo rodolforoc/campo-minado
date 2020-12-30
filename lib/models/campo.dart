@@ -34,19 +34,19 @@ class Campo {
       return;
     }
 
+    _aberto = true;
+
     if (_minado) {
       _explodido = true;
       throw ExplosaoException();
     }
 
     if (vizinhancaSegura) {
-      vizinhos.forEach((v) {
-        v.abrir();
-      });
+      vizinhos.forEach((v) => v.abrir());
     }
   }
 
-  void revelarBombas() {
+  void revelarBomba() {
     if (_minado) {
       _aberto = true;
     }
@@ -90,10 +90,10 @@ class Campo {
   }
 
   bool get vizinhancaSegura {
-    return vizinhos.every((v) => !v._minado);
+    return vizinhos.every((v) => !v.minado);
   }
 
-  int get qtdeMinasVizinhanca {
+  int get qtdeMinasNaVizinhanca {
     return vizinhos.where((v) => v.minado).length;
   }
 }

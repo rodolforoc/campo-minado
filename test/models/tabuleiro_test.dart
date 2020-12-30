@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 main() {
   test('Ganhar jogo', () {
-    Tabuleiro tabuleiro = Tabuleiro(linhas: 2, colunas: 20, qtdBombas: null);
+    Tabuleiro tabuleiro = Tabuleiro(linhas: 2, colunas: 20, qtdeBombas: null);
 
     tabuleiro.campos[0].minar();
     tabuleiro.campos[3].minar();

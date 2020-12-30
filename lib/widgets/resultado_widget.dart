@@ -9,11 +9,11 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
     @required this.onReiniciar,
   });
 
-  Color _getColor() {
+  Color _getCor() {
     if (venceu == null) {
       return Colors.yellow;
     } else if (venceu) {
-      return Colors.green;
+      return Colors.green[300];
     } else {
       return Colors.red[300];
     }
@@ -37,7 +37,7 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
         child: Container(
           padding: EdgeInsets.all(10),
           child: CircleAvatar(
-            backgroundColor: _getColor(),
+            backgroundColor: _getCor(),
             child: IconButton(
               padding: EdgeInsets.all(0),
               icon: Icon(

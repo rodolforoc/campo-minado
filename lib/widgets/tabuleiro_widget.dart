@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 class TabuleiroWidget extends StatelessWidget {
   final Tabuleiro tabuleiro;
   final void Function(Campo) onAbrir;
-  final void Function(Campo) onAlterarMarcacao;
+  final void Function(Campo) onAlternarMarcacao;
 
   TabuleiroWidget({
     @required this.tabuleiro,
     @required this.onAbrir,
-    @required this.onAlterarMarcacao,
+    @required this.onAlternarMarcacao,
   });
 
   @override
@@ -21,9 +21,10 @@ class TabuleiroWidget extends StatelessWidget {
         crossAxisCount: tabuleiro.colunas,
         children: tabuleiro.campos.map((c) {
           return CampoWidget(
-              campo: c,
-              onAbrir: onAbrir,
-              onAlternarMarcacao: onAlterarMarcacao);
+            campo: c,
+            onAbrir: onAbrir,
+            onAlternarMarcacao: onAlternarMarcacao,
+          );
         }).toList(),
       ),
     );

@@ -53,7 +53,7 @@ main() {
       c1.adicionarVizinho(c3);
       c1.adicionarVizinho(c4);
 
-      expect(c1.qtdeMinasVizinhanca, 2);
+      expect(c1.qtdeMinasNaVizinhanca, 2);
     });
   });
 }
