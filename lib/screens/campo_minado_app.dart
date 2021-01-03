@@ -73,7 +73,7 @@ class _CampoMinadoAppState extends State<CampoMinadoApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: ResultadoWidget(
-          venceu: _venceu,
+          venceu: true,
           onReiniciar: _reiniciar,
         ),
         body: Container(
